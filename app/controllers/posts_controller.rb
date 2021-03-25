@@ -50,8 +50,9 @@ class PostsController < ApplicationController
   def posts_params
     params.require(:user).permit(:subject, :body, :image, :likes)
   end
+
   def set_user
-    @user = User.find
+    @user = User.find(params[:id])
   end
 
 end
