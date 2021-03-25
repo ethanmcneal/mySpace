@@ -8,7 +8,7 @@ import {BrowserRouter} from 'react-router-dom'
 import AuthProvider from './providers/AuthProvider';
 import {initMiddleware} from 'devise-axios';
 
-initMiddleware()
+initMiddleware();
 ReactDOM.render(
   <AuthProvider>
   <BrowserRouter>

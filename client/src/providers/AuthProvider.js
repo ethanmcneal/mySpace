@@ -43,9 +43,11 @@ const AuthProvider = (props) =>{
     return(
         <AuthContext.Provider value={{
             user: user,
+            setUser: setUser,
             handleRegister: handleRegister,
             handleLogin: handleLogin,
-            handleLogout: handleLogout}}>
+            handleLogout: handleLogout
+            }}>
             {props.children}
         </AuthContext.Provider>
     )
