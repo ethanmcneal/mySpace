@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  
+  before_action :set_user
 
   def index
     posts = Post.all
@@ -50,6 +50,8 @@ class PostsController < ApplicationController
   def posts_params
     params.require(:user).permit(:subject, :body, :image, :likes)
   end
-
+  def set_user
+    @user = User.find
+  end
 
 end

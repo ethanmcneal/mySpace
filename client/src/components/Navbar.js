@@ -42,6 +42,11 @@ const NavBar = () => {
                 <Menu.Item onClick={handleLogout}>
                 Logout
                 </Menu.Item>
+                <Link to={`/currentUserShow/${user.id}`}>
+                <Menu.Item>
+                {user.email}
+                </Menu.Item>
+                </Link>
                
 
             </Menu.Menu>}

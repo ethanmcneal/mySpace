@@ -9,6 +9,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import FetchUser from './components/FetchUser';
 import ProtectedRoute from './components/ProtectedRoute';
+import UserShow from './components/UserShow';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
     <FetchUser>
    <Switch>
      <ProtectedRoute exact path='/' component={Home} />
+     <Route exact path='/currentUserShow/:user_id' component={UserShow} />
      <Route exact path='/about' component={About} />
      <Route exact path='/styled' component={StyledComponents} />
      <Route exact path='/register' component={Register} />
