@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import FetchUser from './components/FetchUser';
 import ProtectedRoute from './components/ProtectedRoute';
 import UserShow from './components/UserShow';
+import NewPost from './pages/NewPost';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
      <ProtectedRoute exact path='/' component={Home} />
      <Route exact path='/currentUserShow/:user_id' component={UserShow} />
      <Route exact path='/about' component={About} />
+     <Route exact path='/createPost' component={NewPost} />
      <Route exact path='/styled' component={StyledComponents} />
      <Route exact path='/register' component={Register} />
      <Route exact path='/login' component={Login} />
