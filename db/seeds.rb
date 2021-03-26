@@ -22,6 +22,6 @@ Post.destroy_all
 		image = Faker::Name.name 
 # 		body = Faker::Quote.famous_last_words
 # 		image = Faker::Avatar.image(slug: "my-own-slug", size: "50x50", format: "bmp", set: "set1")
-		user.posts.create(subject: subject = Faker::Date.between(from: 2.days.ago, to: Date.today), body: Faker::Quote.famous_last_words, image: Faker::Avatar.image(slug: image, size: "250x250", format: "png", set: "set1"))
+		user.posts.create(subject: subject = Faker::Date.between(from: 2.days.ago, to: Date.today), body: Faker::Quote.famous_last_words, image: Faker::Avatar.image(slug: name, size: "250x250", format: "png", set: "set1"))
 	end
 end
