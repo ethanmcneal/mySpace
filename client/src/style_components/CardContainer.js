@@ -11,6 +11,11 @@ padding: 15px;
 h1 {
     text-align: center;
 }
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 `
 
 export default CardContainer

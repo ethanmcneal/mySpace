@@ -3,13 +3,13 @@ class PostsController < ApplicationController
   before_action :set_user
 
   def index
-    posts = Post.all
+    @posts = @user.posts.all
     render json: @posts
   end
 
   def show
-    @post = @user.posts.find(params[:id])
-    render json: @post
+    posts = @user.posts.find(params[:user_id])
+    render json: posts
   end
 
   def create
@@ -41,18 +41,20 @@ class PostsController < ApplicationController
   end
 
   # def all_post
+  # posts = Post.all
+  #   render json: @posts
   
-  # end
+  # # end
 
 
   private
 
-  def posts_params
-    params.require(:user).permit(:subject, :body, :image, :likes)
+  def post_params
+    params.require(:post).permit(:subject, :body, :image)
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 
 end
