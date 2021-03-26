@@ -2,49 +2,64 @@ import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import { AuthContext } from '../providers/AuthProvider'
 import CardContainer from '../style_components/CardContainer'
+import { Button, Card } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 const Home = () =>{
 
-    const [test, setTest] = useState([])
+    const [posts, setPosts] = useState([])
     const {user} = useContext(AuthContext)
 
     useEffect(()=>{
-        getTest()
+        getPosts()
     },[])
-    const getTest = async() => {
+    const getPosts = async() => {
         try { 
-        let res = await axios.get('/api/api_test')
-        setTest(res.data.hello)
-        console.log(res.data.hello)
+        let res = await axios.get('/all_posts')
+        setPosts(res.data)
+        console.log(res.data)
             
         } catch (error) {
             alert(error)
             
         }
     }
+
+    const renderPosts = () => {
+        return posts.map(p => {
+            return (
+            <CardContainer style={{width: 'auto'}} >
+                {p.subject}
+                <h1>{p.body}</h1>
+                <img src={p.image}/>
+                {/* <Card.Content>
+                    <Button onClick={hitLike}>
+                        {like} 👍
+                    </Button>
+                    </Card.Content> */}
+            </CardContainer> )
+        })
+    }
+
+
     return(
         <div>
-        <h1>Home Page Here</h1>
-       {user && <CardContainer>
+        <h1>DashBoard</h1>
+       {user && <div>
+           <CardContainer>
             <h1>Welcome back!</h1>
             <h3>How are you today {user.nickname}?</h3>
-        </CardContainer> }
+            
+         </CardContainer> 
+         <h1>Posts:</h1>
+        <div>
+        {renderPosts()}
+        </div>
+        </div>}
         
         </div>
     )
+
 }
 
-// class component
-
-// class Home extends React.Component {
-
-
-//     render(){
-//         return (
-//             <div>
-//                 <h1>Home Page here</h1>
-//             </div>
-//         )
-//     }
-// }
 export default Home

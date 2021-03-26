@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useContext, useState } from "react"
+import { useHistory } from "react-router-dom"
 import { Form } from "semantic-ui-react"
 import UserShow from "../components/UserShow"
 import { AuthContext } from "../providers/AuthProvider"
@@ -11,6 +12,7 @@ const NewPost = () => {
     const [subject, setSubject] = useState('')
     const [body, setBody] = useState('')
     const [image, setImage] = useState('')
+    const history = useHistory()
 
     const {user} = useContext(AuthContext)
 
@@ -18,6 +20,7 @@ const NewPost = () => {
         try {
             let res = await axios.post(`/users/${user.id}/posts`, {subject, body, image})
             console.log(res)
+            history.push(`/currentUserShow/${user.id}`)
 
             
         } catch (error) {

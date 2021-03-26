@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   resources :users do
   resources :posts 
   end
-  namespace :api do
-    get '/api_test', to: 'static#api_test'
-    get '/api_test_2', to: 'static#api_test_2'
+    get '/all_posts', to: 'posts#all_posts'
+    
     
   end
-end
+

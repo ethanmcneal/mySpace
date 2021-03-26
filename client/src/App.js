@@ -11,6 +11,7 @@ import FetchUser from './components/FetchUser';
 import ProtectedRoute from './components/ProtectedRoute';
 import UserShow from './components/UserShow';
 import NewPost from './pages/NewPost';
+import UpdatePost from './pages/UpdatePost';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
      <Route exact path='/styled' component={StyledComponents} />
      <Route exact path='/register' component={Register} />
      <Route exact path='/login' component={Login} />
+     <Route exact path='/posts/edit' component={UpdatePost} />
    </Switch>
    </FetchUser>
    </div>

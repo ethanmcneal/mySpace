@@ -15,6 +15,16 @@ const UserShow = () => {
         getData()
     },[])
 
+    const deletePost = async(id) => {
+        try {
+            await axios.delete(`/users/${user.id}/posts/${id}`)
+            window.location.reload()
+            
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     const getData = async()=> {
         try{
             let res = await axios.get(`/users/${user.id}/posts`)
@@ -44,6 +54,10 @@ const UserShow = () => {
                     <Button onClick={hitLike}>
                         {like} 👍
                     </Button>
+                    <Link to='/posts/edit'>
+                    <Button>Edit</Button>
+                    </Link>
+                    <Button color='red' onClick={()=>{deletePost(p.id)}}>Delete</Button>
                 </Card.Content>
             </CardContainer> )
         })
