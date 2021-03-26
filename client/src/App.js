@@ -12,6 +12,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import UserShow from './components/UserShow';
 import NewPost from './pages/NewPost';
 import UpdatePost from './pages/UpdatePost';
+import AllUsers from './components/AllUsers';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
      <Route exact path='/register' component={Register} />
      <Route exact path='/login' component={Login} />
      <Route exact path='/posts/edit' component={UpdatePost} />
+     <Route exact path='/users' component={AllUsers} />
    </Switch>
    </FetchUser>
    </div>
