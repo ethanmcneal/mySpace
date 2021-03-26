@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:index, :show, :create, :update, :destroy]
+  before_action :set_user, only: [:index, :show, :create, :update, :destroy, :get_users]
 
   def index
     @posts = @user.posts.all
@@ -44,6 +44,7 @@ class PostsController < ApplicationController
   posts = Post.all
   render json: posts
    end
+
 
 
   private
